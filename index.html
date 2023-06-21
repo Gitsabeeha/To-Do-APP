@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do app</title>
+</head>
+<style>
+    body{
+        background-color: rgb(205, 188, 63);
+    }
+</style>
+<body>
+  <h1> To-Do App</h1>
+    <input id='input' type="text" placeholder="Enter your text">
+    <button id="btn">Add</button>
+    <ul id="listItem"></ul>
+   
+   <script>
+        const inputField=document.getElementById('input');
+        const addbtn =document.getElementById('btn');
+        const listem=document.getElementById('listItem');
+
+
+        addbtn.addEventListener('click',function(){
+            const Text=inputField.value;
+            if (Text) {
+             const list  = document.createElement('li');
+             list.textContent=Text;
+
+              const deleteButton=document.createElement('button')
+              deleteButton.textContent='Delete'
+
+              deleteButton.addEventListener('click',function(){
+                list.remove();
+            })
+                list.appendChild(deleteButton);
+
+                listem.appendChild(list);
+                
+                inputField.value=' '
+
+             
+
+            }
+        })
+
+   </script> 
+</body>
+</html>
